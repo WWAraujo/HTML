@@ -1,11 +1,17 @@
 .cores label::after {
+    border: 6px solid rgba(0, 0, 0, 0);
+    transition: 1s;
+}
+
+.cores label::after {
     content: '';
     display: block;
     border-radius: 50%;
     width: 50px;
     height: 50px;
     position: absolute;
-    top: 30px
+    top: 30px;
+    cursor: pointer;     
 }
 
 label[for=verde]::after {
@@ -13,7 +19,7 @@ label[for=verde]::after {
 }
 
 label[for=rosa]::after {
-    background-color: #FF6666;
+    background-color: #FF6667;
 }
 
 label[for=azul]::after {
@@ -97,11 +103,6 @@ label[for=azul]::after {
     margin: 1em 0;
 }
 
-.cores label::after {
-    border: 6px solid rgba(0, 0, 0, 0);
-    transition: 0.5s;
-}
-
 .cores label:hover::after {
     border: 6px solid rgba(0,0,0,0.1);
 }
@@ -117,3 +118,106 @@ label[for=azul]::after {
     cursor: pointer;
 }
 
+
+@media (min-width: 630px){
+    .produto{
+        /*A foto vai se posicinar absolutamente com relação a esse elevmento, por isso preciso estar posicionado*/
+        position: relative;
+        /*Deixar um espaço em branco na esquerda para a foto ocupar*/
+        padding-left: 40%;
+        font-size: 1.2em;
+    }
+    .cores {
+        /*Estava relative antes; reinicio para static para evitar que a foto se posicione com relação a mim*/
+        position: static;
+        /*Zerando o padding-top que tinha antes e não preciso mais*/
+        padding: 0;
+    }
+    .core legend {
+        /*estava absolute antes, para ter o mesmo comportamento do Chrome e no Firefox*/
+        position: static;
+    }
+    .cores label img {
+        /*imagem se posiciona absolutamente à esquerda com relação ao .produto*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 35%;
+        max-height: 100%;
+    }
+    .core label:after {
+        /*as colinhas coloridas tinham posição absoluta e não precisamos mias, basta flutuar uma do lado da outra*/
+        position: static;
+        float: left;
+        margin-right: 10px;
+    }
+    
+}
+
+
+fieldset {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1em 0;
+    min-width: 240px;
+    width: 45%;
+}
+
+.detalhes {
+    padding: 2em 0;
+}
+
+.detalhes h2 {
+    font-size: 1.5em;
+    line-height: 2;
+}
+
+.detalhes p {
+    margin: 1em 0;
+    font-size: 1em;
+    line-height: 1.5;
+    max-width: 36em;
+}
+
+@media (min-width: 500px){
+    .detalhes{
+        font-size: 1.2em;
+    }
+}
+
+table{
+    border-spacing: 0.2em;
+    border-collapse: separate;
+}
+
+thead {
+    background-color: #999;
+}
+
+thead th {
+    font-weight: bold;
+    padding: 0.3em 1em;
+    text-align: center;
+}
+
+td {
+    padding: 0.3em;
+}
+
+tr:nth-child(2em) {
+    background-color: #CCC;
+}
+
+td:first-child {
+    font-style: italic;
+}
+
+.produto-back {
+    background-color: #F2F2F2;
+    margin-top: 1em;
+    border-top: 2px solid #CCC;
+}
+
+.cores label img {
+    border: 2px solid #CCC;
+}
